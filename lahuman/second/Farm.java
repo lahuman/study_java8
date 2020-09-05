@@ -2,18 +2,18 @@ package lahuman.second;
 
 import java.util.*;
 import lahuman.Apple;
-import lahuman.ApplePredicate;
+import lahuman.Predicate;
 
 public class Farm {
     /**
      * 
-     * @param inventory
+     * @param list
      * @param p         동작 파라미터화 처리
      * @return
      */
-    public static List<Apple> filterGreenApples(List<Apple> inventory, ApplePredicate p) {
-        List<Apple> result = new ArrayList<>();
-        for (Apple apple : inventory) {
+    public static <T> List<T> filterGreenApples(List<T> list, Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for (T apple : list) {
             if (p.test(apple)) {
                 result.add(apple);
             }
