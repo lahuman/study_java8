@@ -4,10 +4,16 @@ import java.util.*;
 import lahuman.Apple;
 
 public class Farm {
-    public static List<Apple> filterGreenApples(List<Apple> inventory) {
+    /**
+     * 
+     * @param inventory
+     * @param color 동작 파라미터화 처리
+     * @return
+     */
+    public static List<Apple> filterGreenApples(List<Apple> inventory, String color) {
         List<Apple> result = new ArrayList<>();
         for (Apple apple : inventory) {
-            if ("green".equals(apple.getColor())) {
+            if (color.equals(apple.getColor())) {
                 result.add(apple);
             }
         }
