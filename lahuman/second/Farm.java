@@ -15,19 +15,20 @@ public class Farm {
     }
 
     public static void main(String[] args) {
-        Apple a1 = new Apple("red", 10);
-        Apple a2 = new Apple("red", 20);
-        Apple a3 = new Apple("green", 10);
-        Apple a4 = new Apple("green", 20);
-        Apple a5 = new Apple("blue", 10);
-        List<Apple> inventory = new ArrayList<>();
-        inventory.add(a1);
-        inventory.add(a2);
-        inventory.add(a3);
-        inventory.add(a4);
-        inventory.add(a5);
+        // Apple a1 = new Apple("red", 10);
+        // Apple a2 = new Apple("red", 20);
+        // Apple a3 = new Apple("green", 10);
+        // Apple a4 = new Apple("green", 20);
+        // Apple a5 = new Apple("blue", 10);
+        // List<Apple> inventory = new ArrayList<>();
+        // inventory.add(a1);
+        // inventory.add(a2);
+        // inventory.add(a3);
+        // inventory.add(a4);
+        // inventory.add(a5);
 
-        for (Apple apple : filterGreenApples(inventory)){
+        for (Apple apple : filterGreenApples(Arrays.asList(new Apple("red", 10), new Apple("red", 20),
+                new Apple("green", 10), new Apple("green", 20), new Apple("blue", 10)))) {
             System.out.println(apple);
         }
 
