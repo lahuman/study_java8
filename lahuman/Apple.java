@@ -17,6 +17,10 @@ public class Apple {
         return color;
     }
 
+    public int compareTo(int w){
+        return weight - w;
+    }
+
     @Override
     public String toString() {
         return "사과의 색상은 [" + color + "] 이고 크기는 [" + weight + "] 입니다.";

@@ -71,7 +71,7 @@ public class Farm {
                 new Apple("green", 20), 
                 new Apple("blue", 10));
      
-        items.sort((final Apple a1, final Apple a2) -> a1.getWeight() - a2.getWeight());
+        items.sort((final Apple a1, final Apple a2) -> a1.compareTo(a2.getWeight()) );
                 // .sort(new Comparator<Apple>() {
                 //         @Override
                 //         public int compare(Apple arg0, Apple arg1) {
@@ -80,7 +80,7 @@ public class Farm {
                 // })
 
         items.stream()
-            .filter(person -> person.getWeight() == 10)
+            // .filter(person -> person.getWeight() == 10)
             .forEach(System.out::println);
     }
 
