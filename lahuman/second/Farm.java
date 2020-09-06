@@ -11,9 +11,9 @@ public class Farm {
      * @param p         동작 파라미터화 처리
      * @return
      */
-    public static <T> List<T> filterGreenApples(List<T> list, Predicate<T> p) {
-        List<T> result = new ArrayList<>();
-        for (T apple : list) {
+    public static <T> List<T> filterGreenApples(final List<T> list, final Predicate<T> p) {
+        final List<T> result = new ArrayList<>();
+        for (final T apple : list) {
             if (p.test(apple)) {
                 result.add(apple);
             }
@@ -21,7 +21,7 @@ public class Farm {
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         // step 1 : 데이터 생성 & 테스트 
         // Apple a1 = new Apple("red", 10);
@@ -52,16 +52,36 @@ public class Farm {
         // }
 
         //step 3 : LAMDA 표현식 사용
-        for (Apple apple : filterGreenApples(Arrays.asList(
+        for (final Apple apple : filterGreenApples(Arrays.asList(
                                                     new Apple("red", 10), 
                                                     new Apple("red", 20),
                                                     new Apple("green", 10), 
                                                     new Apple("green", 20), 
                                                     new Apple("blue", 10)), 
-            (Apple apple) -> "red".equals(apple.getColor()))) {
+            (final Apple apple) -> "red".equals(apple.getColor()))) {
             System.out.println(apple);
         }
 
+        // Stream 이용
+        System.out.println("---------------------------------------------------");
+        final List<Apple> items = Arrays.asList(
+                new Apple("red", 10), 
+                new Apple("red", 20),
+                new Apple("green", 10), 
+                new Apple("green", 20), 
+                new Apple("blue", 10));
+     
+        items.sort((final Apple a1, final Apple a2) -> a1.getWeight() - a2.getWeight());
+                // .sort(new Comparator<Apple>() {
+                //         @Override
+                //         public int compare(Apple arg0, Apple arg1) {
+                //             return arg0.getWeight() - arg1.getWeight();
+                //         }
+                // })
+
+        items.stream()
+            .filter(person -> person.getWeight() == 10)
+            .forEach(System.out::println);
     }
 
 }
